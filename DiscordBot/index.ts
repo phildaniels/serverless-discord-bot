@@ -1,5 +1,6 @@
-import * as path from 'path';
 import { AzureFunctionServer, SlashCreator } from 'slash-create';
+import HelloCommand from './commands/basic.command';
+import ModalCommand from './commands/modal.command';
 
 const creator = new SlashCreator({
   applicationID: process.env.DISCORD_APP_ID,
@@ -9,5 +10,5 @@ const creator = new SlashCreator({
 
 creator
   .withServer(new AzureFunctionServer(module.exports))
-  .registerCommandsIn(path.join(__dirname, 'commands'))
-  .syncCommands();
+  .registerCommands([HelloCommand, ModalCommand])
+  .syncCommands({ deleteCommands: true });

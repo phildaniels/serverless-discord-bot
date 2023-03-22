@@ -1,20 +1,21 @@
-const {
+import {
   SlashCommand,
   CommandOptionType,
   SlashCreator,
   CommandContext,
-} = require('slash-create');
+} from 'slash-create';
 
-module.exports = class HelloCommand extends SlashCommand {
-  constructor(creator) {
+export default class HelloCommand extends SlashCommand {
+  constructor(creator: SlashCreator) {
     super(creator, {
       name: 'hello1',
       description: 'Says hello to you.',
+      guildIDs: ['1087211533983023185'],
       options: [
         {
           type: CommandOptionType.STRING,
           name: 'food',
-          description: 'What food do you like?',
+          description: 'What food do you like to eat?',
         },
       ],
     });
@@ -22,9 +23,9 @@ module.exports = class HelloCommand extends SlashCommand {
     this.filePath = __filename;
   }
 
-  async run(ctx) {
+  async run(ctx: CommandContext) {
     return ctx.options.food
-      ? `You like ${ctx.options.food}? Nice!`
+      ? `You like ${ctx.options.food}? Me too!`
       : `Hello, ${ctx.user.username}!`;
   }
-};
+}
