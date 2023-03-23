@@ -1,5 +1,5 @@
 import { AzureFunctionServer, SlashCreator } from 'slash-create';
-import HelloCommand from './commands/basic.command';
+import HelloCommand from './commands/hello.command';
 import ModalCommand from './commands/modal.command';
 
 const creator = new SlashCreator({

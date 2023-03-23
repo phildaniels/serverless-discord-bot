@@ -8,10 +8,14 @@ import {
 
 export default class ModalCommand extends SlashCommand {
   constructor(creator: SlashCreator) {
+    const guildIdsString = process.env.DISCORD_GUILD_IDS;
+    const guildIds = guildIdsString
+      ? (JSON.parse(guildIdsString) as string[])
+      : ([] as string[]);
     super(creator, {
       name: 'modal',
       description: 'Send a cool modal.',
-      guildIDs: ['1087211533983023185'],
+      guildIDs: [...guildIds],
     });
 
     this.filePath = __filename;
