@@ -3,8 +3,8 @@
   "tasks": [
     {
       "type": "func",
-      "label": "func: host start",
-      "command": "host start",
+      "label": "func: start",
+      "command": "start --verbose",
       "problemMatcher": "$func-node-watch",
       "isBackground": true,
       "dependsOn": "npm build (functions)"

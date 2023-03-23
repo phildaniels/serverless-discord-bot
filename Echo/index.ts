@@ -4,8 +4,9 @@ const httpTrigger: AzureFunction = async function (
   context: Context,
   req: HttpRequest
 ): Promise<void> {
+  context.log('req.body', req.body);
   context.res = {
-    body: 'Request was successful',
+    body: req.body,
   };
 };
 
