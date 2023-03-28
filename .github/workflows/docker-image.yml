@@ -28,5 +28,4 @@ jobs:
           github.ref_type == 'tag' && 
           !startsWith(github.ref, 'refs/tags/v0.') 
           }}
-        file: ./Dockerfile
         tags: phildaniels/azurefunctionsdiscordbot:v1.0.0
