@@ -28,8 +28,13 @@ export default class HelloCommand extends SlashCommand {
   }
 
   async run(ctx: CommandContext) {
+    await ctx.defer();
+    const waitTenSeconds = new Promise((resolve) => {
+      setTimeout(() => resolve('done'), 10000);
+    });
+    await waitTenSeconds;
     return ctx.options.food
       ? `You like ${ctx.options.food}? Me too!`
-      : `Hello, ${ctx.user.username}!`;
+      : `Hello, ${ctx.user.username}, how are you?!`;
   }
 }
