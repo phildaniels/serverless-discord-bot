@@ -33,8 +33,10 @@ export default class HelloCommand extends SlashCommand {
       setTimeout(() => resolve('done'), 10000);
     });
     await waitTenSeconds;
-    return ctx.options.food
-      ? `You like ${ctx.options.food}? Me too!`
-      : `Hello, ${ctx.user.username}, how are you?!`;
+    return ctx.send(
+      ctx.options.food
+        ? `You like ${ctx.options.food}? Me too!`
+        : `Hello, ${ctx.user.username}, how are you?!`
+    );
   }
 }
