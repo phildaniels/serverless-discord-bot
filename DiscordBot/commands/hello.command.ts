@@ -9,7 +9,7 @@ export default class HelloCommand extends SlashCommand {
   constructor(creator: SlashCreator) {
     const guildIdsString = process.env.DISCORD_GUILD_IDS;
     const guildIds = guildIdsString
-      ? (JSON.parse(guildIdsString) as string[])
+      ? (guildIdsString.split(',') as string[])
       : ([] as string[]);
     super(creator, {
       name: 'hello',
